@@ -6,9 +6,6 @@ from aws_cdk import (
     Aws
 )
 
-from datetime import datetime
-
-from mammo_scan_ecs.mammo_scan_ecs_stack import MammoScanEcsStack
 from mammo_scan_ecs.vpc_stack import MammoScanVpcStack
 from mammo_scan_ecs.frontend_stack import FrontEndWebStack
 from mammo_scan_ecs.sagemaker_stack import SageMakerStack
@@ -20,7 +17,7 @@ env = {
 endpoint_name = 'mammography-classification-endpoint'
 
 image_uri = sagemaker.image_uris.retrieve(
-    region="us-east-1",
+    region=Aws.REGION,
     framework="image-classification")
 
 hyperparameters={
@@ -45,10 +42,8 @@ sagemaker_configs = {
 }
 
 
-
-
 app = cdk.App()
-# MammoScanEcsStack(app, "MammoScanEcsStack")
+
 vpc_network = MammoScanVpcStack(app, "MammoScanVpcStack")
 
 FrontEndWebStack(app, "FrontEndWebStack", vpc=vpc_network.get_vpc, sagemaker_configs=sagemaker_configs, env=env)
