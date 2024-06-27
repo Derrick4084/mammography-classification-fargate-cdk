@@ -1,18 +1,17 @@
 
-# Welcome to your CDK Python project!
+# Mammography Classification project!
 
-This is a blank project for CDK development with Python.
+- Uses step function to train and create a model from
+  mammogram images, and also creates the endpoint for inference.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+- Creates web frontend using Streamlit
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
+- Api Gateway to accept request from Web pages
 
-To manually create a virtualenv on MacOS and Linux:
+- Fargate with Application Load Balancer to host the web application
+
+
+To manually create a virtualenv
 
 ```
 $ python3 -m venv .venv
@@ -23,12 +22,6 @@ step to activate your virtualenv.
 
 ```
 $ source .venv/bin/activate
-```
-
-If you are a Windows platform, you would activate the virtualenv like this:
-
-```
-% .venv\Scripts\activate.bat
 ```
 
 Once the virtualenv is activated, you can install the required dependencies.
@@ -55,4 +48,4 @@ command.
  * `cdk diff`        compare deployed stack with current state
  * `cdk docs`        open CDK documentation
 
-Enjoy!
+
